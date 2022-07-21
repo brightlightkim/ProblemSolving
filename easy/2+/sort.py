@@ -2,22 +2,29 @@ from collections import Counter
 n, c = map(int, input().split())
 nums = list(map(int, input().split()))
 dict = {}
-for i in range(len(nums)):
-    if nums[i] in dict:
-        dict[nums[i]] += 1
+max = 0
+for i in range(len(s)):
+    if s[i] in dict:
+        dict[s[i]] += 1
     else:
-        dict[nums[i]] = 1
-indexMap = {}
+        dict[s[i]] = 1
 for num in dict:
-    if dict[num] in indexMap:
-        indexMap[dict[num]].append(num)
-    else:
-        indexMap[dict[num]] = [num]
-
-for freq in sorted(indexMap, reverse=True):
-    for num in indexMap[freq]:
-        for _ in range(freq):
-            print(num, end=' ')
+    count = dict[num]
+    st = 0
+    lt = len(s) - 1
+    while count > 2:
+        blank = lt - st - 2
+        leng = 0
+        if blank > k:
+            leng = k + 1
+        elif blank == k:
+            leng = k + 2
+        else:
+            leng = blank + 2
+        if (leng > max):
+            max = leng
+        count -= 1
+print(max)
 
 # while True:
 #     max_val = max(dict.values())
