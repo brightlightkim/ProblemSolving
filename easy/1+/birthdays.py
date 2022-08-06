@@ -1,0 +1,2 @@
+numberOfFriends = int(input())
+
