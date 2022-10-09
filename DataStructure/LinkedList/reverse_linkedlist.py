@@ -1,4 +1,10 @@
-def reverseLinkedList(LinkedList node):
+class LinkedList:
+    def __init__(self, val=0, next=None):
+        self.val = val
+        self.next = next
+
+
+def reverseLinkedList(node):
     current = node
     prev = None
     next = None
